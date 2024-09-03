@@ -62,3 +62,33 @@ Ensure you have the following tools installed on your machine:
 2. **Navigate to the project directory**
    ```bash
    cd front-end-projects
+
+## Usage
+
+1. **Navigate to the desired project folder.**
+2. **Open the `index.html` file in your browser** to view the project.
+   
+Feel free to explore and modify the code to suit your needs!
+
+## Contributing
+
+Contributions are welcome! If you have any improvements or additional projects that you'd like to add, please follow these steps:
+
+1. **Fork the repository.**
+2. **Create a new branch:**
+   ```bash
+   git checkout -b feature/my-new-feature
+3. **Commit your changes**
+   ```bash
+   git commit -m 'Add some feature'
+4. **Push to the branch**
+   ```bash
+   git push origin feature/my-new-feature
+5. **Open a pull request**
+
+# License
+
+This repository is licensed under the MIT License. See the LICENSE file for more information.
+
+
+This content is formatted in Markdown to look clean and well-organized on GitHub. Each section is clearly defined, and code snippets are properly highlighted. Make sure to add the actual `LICENSE` file in your repository for the "License" section to work correctly.
