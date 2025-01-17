@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Button Logic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .mainconte {
+    width: 45%;
+    margin: auto;
+    padding: 25px;
+    margin-top: 100px;
+    border-radius: 20%;
+    border: 2px solid;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px auto;
+      height: 50px;
+      background-color: #f4f4f4;
+      border-radius: 25px;
+      position: relative;
+    }
+    .name {
+      flex: 1;
+      text-align: center;
+      line-height: 50px;
+    }
+    .toggle-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #00de32;
+      position: absolute;
+      top: 0;
+      transition: left 0.3s ease;
+    }
+    .toggle-btn.left {
+      left: 0;
+    }
+    .toggle-btn.right {
+      left: calc(100% - 50px);
+    }
+    .radio-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+    width: 70%;
+    margin: auto;
+    }
+    .radio-container label {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="mainconte">
+<div class="container">
+  <div class="name">Shayla</div>
+  <div class="toggle-btn left" id="toggle"></div>
+  <div class="name">Akanksha</div>
+</div>
+
+<div class="radio-container">
+  <label>
+    <input type="checkbox" name="option" value="1"> Loyalty
+  </label>
+  <label>
+    <input type="checkbox" name="option" value="2"> Money
+  </label>
+  <label>
+    <input type="checkbox" name="option" value="3"> Beauty
+  </label>
+  <label>
+    <input type="checkbox" name="option" value="4"> Talented
+  </label>
+</div>
+</div>
+
+<script>
+  const toggleButton = document.getElementById("toggle");
+  const checkboxes = document.querySelectorAll("input[name='option']");
+
+  let selectedButtons = [];
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", (event) => {
+      const value = event.target.value;
+
+      if (event.target.checked) {
+        selectedButtons.push(value);
+
+        if (selectedButtons.length > 3) {
+          const removedValue = selectedButtons.shift();
+          const toUncheck = Array.from(checkboxes).find(cb => cb.value === removedValue);
+          if (toUncheck) toUncheck.checked = false;
+        }
+      } else {
+        selectedButtons = selectedButtons.filter((v) => v !== value);
+      }
+
+      const selectedSet = new Set(selectedButtons);
+
+      if (
+        selectedSet.has("1") &&
+        selectedSet.has("2") &&
+        selectedSet.has("3")
+      ) {
+        toggleButton.classList.remove("right");
+        toggleButton.classList.add("left");
+      } else if (
+        selectedSet.has("2") &&
+        selectedSet.has("3") &&
+        selectedSet.has("4")
+      ) {
+        toggleButton.classList.remove("left");
+        toggleButton.classList.add("right");
+      } else if (
+        selectedSet.has("1") &&
+        selectedSet.has("3") &&
+        selectedSet.has("4")
+      ) {
+        toggleButton.classList.remove("right");
+        toggleButton.classList.add("left");
+      } else {
+        toggleButton.classList.remove("left", "right");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font: 400 1rem / 1.625em "Outfit", sans-serif;
+}
+:root {
+    --gray: #6c6c6c;
+    --coblet: #01427a;
+    --azur: #2e5caf;
+    --mailblue: #658cc2;
+    --pink: #DE4278;
+    --white: #fff;
+    --black: #0c0c0d;
+    --silver: #afafaf;
+    --whited: #f1f1f1;
+}
+/* Header Section */
+.logo {
+    background-color: var(--coblet);
+}
+.logo > img {
+    width: 200px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--whited);
+}
+.navbar > ul {
+    list-style: none;
+    display: flex;
+    color: var(--black);
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+.navbar > ul > li{
+    margin: 10px;
+    font-weight: 600;
+}
+
+/* Slider CSS */
+
